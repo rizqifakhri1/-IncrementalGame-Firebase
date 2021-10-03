@@ -1,4 +1,4 @@
-#IncrementalGame-Firebase
+# IncrementalGame-Firebase
  Tugas Agate Chapter 8 - Implementasi FireBase pada IncrementalGame
 
 Nama     : Muhammad Rizqi Fakhri Kurniawan<br>
