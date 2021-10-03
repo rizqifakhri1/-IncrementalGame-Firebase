@@ -13,7 +13,7 @@ public class AchievementController : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<AchievementController> ();
+                _instance = FindObjectOfType<AchievementController>();
             }
 
             return _instance;
@@ -27,33 +27,33 @@ public class AchievementController : MonoBehaviour
 
     private float _popUpShowDurationCounter;
 
-    private void Update ()
+    private void Update()
     {
         if (_popUpShowDurationCounter > 0)
         {
             // Kurangi durasi ketika pop up durasi lebih dari 0
             _popUpShowDurationCounter -= Time.unscaledDeltaTime;
             // Lerp adalah fungsi linear interpolation, digunakan untuk mengubah value secara perlahan
-            _popUpTransform.localScale = Vector3.LerpUnclamped (_popUpTransform.localScale, Vector3.one, 0.5f);
+            _popUpTransform.localScale = Vector3.LerpUnclamped(_popUpTransform.localScale, Vector3.one, 0.5f);
         }
         else
         {
-            _popUpTransform.localScale = Vector2.LerpUnclamped (_popUpTransform.localScale, Vector3.right, 0.5f);
+            _popUpTransform.localScale = Vector2.LerpUnclamped(_popUpTransform.localScale, Vector3.right, 0.5f);
         }
     }
 
-    public void UnlockAchievement (AchievementType type, string value)
+    public void UnlockAchievement(AchievementType type, string value)
     {
         // Mencari data achievement
-        AchievementData achievement = _achievementList.Find (a => a.Type == type && a.Value == value);
+        AchievementData achievement = _achievementList.Find(a => a.Type == type && a.Value == value);
         if (achievement != null && !achievement.IsUnlocked)
         {
             achievement.IsUnlocked = true;
-            ShowAchivementPopUp (achievement);
+            ShowAchivementPopUp(achievement);
         }
     }
 
-    private void ShowAchivementPopUp (AchievementData achievement)
+    private void ShowAchivementPopUp(AchievementData achievement)
     {
         _popUpText.text = achievement.Title;
         _popUpShowDurationCounter = _popUpShowDuration;
